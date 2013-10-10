@@ -12,7 +12,6 @@
     <div>
         <h1>Salary Calculator</h1>
         <hr />
-        <br />
 
         <% If Not IsPostBack Then%>
             <!--This is the first time the page has loaded. Instructions will be posted.-->
@@ -33,8 +32,8 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbHourlyWage" runat="server" TabIndex="1"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="revCheckNumberFormat1" runat="server" ControlToValidate="tbHourlyWage" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="rfvWage" runat="server" ControlToValidate="tbHourlyWage" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat1" runat="server" ControlToValidate="tbHourlyWage" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvWage" runat="server" ControlToValidate="tbHourlyWage" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
 
@@ -45,8 +44,8 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbHoursWorked" runat="server" TabIndex="2"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="revCheckNumberFormat2" runat="server" ControlToValidate="tbHoursWorked" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="rfvHours" runat="server" ControlToValidate="tbHoursWorked" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat2" runat="server" ControlToValidate="tbHoursWorked" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvHours" runat="server" ControlToValidate="tbHoursWorked" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
 
@@ -57,7 +56,7 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbPreTax" runat="server" TabIndex="3"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="revCheckNumberFormat3" runat="server" ControlToValidate="tbPreTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat3" runat="server" ControlToValidate="tbPreTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -68,7 +67,7 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbAfterTax" runat="server" TabIndex="4"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="revCheckNumberFormat4" runat="server" ControlToValidate="tbAfterTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat4" runat="server" ControlToValidate="tbAfterTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small" ForeColor="Red"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -81,7 +80,7 @@
             <tr>
                 <td>&nbsp; </td>
                 <td>&nbsp; 
-                    <asp:ValidationSummary ID="valSummary" runat="server" />
+                    <asp:ValidationSummary ID="valSummary" runat="server" Font-Italic="True" Font-Size="Small" ForeColor="Red"/>
                 </td>
             </tr>
             
@@ -102,8 +101,7 @@
                     <asp:Button ID="btnClear" runat="server" CausesValidation="false" Text="Clear All" />
                 </td>
             </tr>
-        </table>
-        <br />      
+        </table>    
     </div>
 
     <div id="footnote">
