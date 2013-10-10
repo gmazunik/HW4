@@ -16,10 +16,9 @@
 
         <% If Not IsPostBack Then%>
             <!--This is the first time the page has loaded. Instructions will be posted.-->
-            <asp:Label ID="lblInstructions" runat="server" Text="This is Acme Incorporated's Employee Salary Calculator.
-                Please enter your hourly wage and hours worked this week, along with any pre-tax and/or after-tax deductions.
-                Taxes will automatically be deducted, and your net pay for the week will be displayed below." Font-Size="Small"></asp:Label>
-            <br />
+            <p>This is Acme Incorporated's Employee Salary Calculator.<br />
+                Please enter your hourly wage and hours worked this week, along with any pre-tax and/or after-tax deductions.<br />
+                Taxes will automatically be deducted, and your net pay for the week will be displayed below.</p>
 
         <% Else%>
             <!-- Then then page is in postback -->
@@ -34,7 +33,8 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbHourlyWage" runat="server" TabIndex="1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvWage" runat="server" ControlToValidate="tbHourlyWage" ErrorMessage="* Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat1" runat="server" ControlToValidate="tbHourlyWage" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvWage" runat="server" ControlToValidate="tbHourlyWage" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
             </tr>
 
@@ -45,7 +45,8 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbHoursWorked" runat="server" TabIndex="2"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvHours" runat="server" ControlToValidate="tbHoursWorked" ErrorMessage="* Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat2" runat="server" ControlToValidate="tbHoursWorked" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvHours" runat="server" ControlToValidate="tbHoursWorked" Text="*" ErrorMessage="Field required. Please enter a positive number" Font-Italic="True" Font-Size="Small"></asp:RequiredFieldValidator>
                 </td>
             </tr>
 
@@ -56,6 +57,7 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbPreTax" runat="server" TabIndex="3"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat3" runat="server" ControlToValidate="tbPreTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -66,27 +68,30 @@
                     
                 <td>
                     <asp:TextBox CssClass="right" ID="tbAfterTax" runat="server" TabIndex="4"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revCheckNumberFormat4" runat="server" ControlToValidate="tbAfterTax" ValidationExpression="^\d*\.?\d*$" Text="*" ErrorMessage="Please enter only positive numbers." Font-Italic="True" Font-Size="Small"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
             <tr>
                 <td>&nbsp; </td>
 
-                <td><asp:Button ID="btnCalc" runat="server" Text="Calculate" Width="248px" /></td>
+                <td><asp:Button ID="btnCalc" runat="server" Text="Calculate" /></td>
             </tr>
 
             <tr>
                 <td>&nbsp; </td>
-                <td>&nbsp; </td>
+                <td>&nbsp; 
+                    <asp:ValidationSummary ID="valSummary" runat="server" />
+                </td>
             </tr>
             
             <tr>
                 <td class="right">
-                    <asp:Label ID="lblNetPay" runat="server" Text="Net Pay This Week:" Width="338px"></asp:Label>
+                    <asp:Label ID="lblNetPay" runat="server" Text="Net Pay This Week:" ></asp:Label>
                 </td>
                     
                 <td>
-                    <asp:Label CssClass="right" ID="lblDisplayNetPay" runat="server" Width="248px" Font-Bold="True"></asp:Label>
+                    <asp:Label CssClass="right" ID="lblDisplayNetPay" runat="server" Font-Bold="True"></asp:Label>
                 </td>
             </tr>
 
@@ -94,7 +99,7 @@
                 <td>&nbsp;</td>
 
                 <td>
-                    <asp:Button ID="btnClear" runat="server" Text="Clear All" Width="248px" />
+                    <asp:Button ID="btnClear" runat="server" CausesValidation="false" Text="Clear All" />
                 </td>
             </tr>
         </table>
