@@ -2,6 +2,11 @@
     font-family: Helvetica, Arial, sans-serif;
 }
 
+p {
+    font-size:0.75em;
+    font-style: italic;
+}
+
 td {
     height: 48px;
 }
