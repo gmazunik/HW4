@@ -41,7 +41,7 @@ Partial Class _Default
         netPay = postTaxPay - afterTaxD
 
         'Display results in label
-        lblDisplayNetPay.Text = String.Format("{0:C}", netPay)
+        tbDisplayNetPay.Text = String.Format("{0:C}", netPay)
 
     End Sub
 
@@ -52,9 +52,15 @@ Partial Class _Default
         tbHoursWorked.Text = ""
         tbPreTax.Text = ""
         tbAfterTax.Text = ""
+        tbDisplayNetPay.Text = ""
 
         ' Focus on wage textbox
         tbHourlyWage.Focus()
 
+    End Sub
+
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' Focus on wage textbox
+        tbHourlyWage.Focus()
     End Sub
 End Class

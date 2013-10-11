@@ -1,10 +1,11 @@
-﻿* html, body {
-    margin: 0;
-    padding: 0;
+﻿body {
+    margin-left: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    background-image: url('paper_fibers_@2X.png');
 }
 
-body {
-    font-family: Helvetica, Arial, sans-serif;
+h1 {
+    font-weight: bold;
 }
 
 p {
@@ -13,7 +14,7 @@ p {
 }
 
 #instructions {
-    padding: 5px 5px 5px 5px;
+    padding: -20px 5px 5px 0px;
     vertical-align: middle;
 }
 
@@ -34,7 +35,7 @@ td {
     text-align: right;
 }
 
-h5 {
+h4 {
     font-style: italic;
 }
 
